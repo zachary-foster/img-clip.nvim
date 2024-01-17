@@ -118,7 +118,7 @@ M.get_file_path = function(ext, opts)
   end
 
   -- overwrite extension if the user added a known one to the file name
-  local user_ext = str:match("jpg$")
+  local user_ext = string:match("jpg$")
   if user_ext then
     ext = user_ext
   end
