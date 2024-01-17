@@ -117,6 +117,12 @@ M.get_file_path = function(ext, opts)
     file_path = dir_path .. config_file_name
   end
 
+  -- overwrite extension if the user added a known one to the file name
+  local user_ext = str:match("jpg$")
+  if user_ext then
+    ext = user_ext
+  end
+
   -- add file ext
   file_path = M.add_file_ext(file_path, ext)
   return file_path
