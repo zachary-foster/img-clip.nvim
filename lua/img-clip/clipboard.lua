@@ -68,7 +68,10 @@ end
 M.save_image = function(cmd, file_path)
   -- Linux (X11)
   if cmd == "xclip" then
-    local command = string.format('xclip -selection clipboard -o -t image/png > "%s"', file_path)
+    local command = string.format(
+      'xclip -selection clipboard -o -t image/png | convert png:- -resize "10000000@" jpeg:- > "%s"',
+      file_path
+    )
     local _, exit_code = util.execute(command)
     return exit_code == 0
 
