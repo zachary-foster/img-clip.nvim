@@ -64,12 +64,16 @@ end
 
 ---@param cmd string
 ---@param file_path string
+---@param format string
+---@param convert_opts string
 ---@return boolean
-M.save_image = function(cmd, file_path)
+M.save_image = function(cmd, file_path, format, convert_opts)
   -- Linux (X11)
   if cmd == "xclip" then
     local command = string.format(
-      'xclip -selection clipboard -o -t image/png | convert png:- -resize "10000000@" jpeg:- > "%s"',
+      'xclip -selection clipboard -o -t image/png | convert png:- %s %s:- > "%s"',
+      convert_opts,
+      format,
       file_path
     )
     local _, exit_code = util.execute(command)

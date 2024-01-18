@@ -31,7 +31,14 @@ local paste_as_file = function(opts)
   end
 
   -- save image to specified file path
-  if not clipboard.save_image(clip_cmd, file_path) then
+  if
+    not clipboard.save_image(
+      clip_cmd,
+      file_path,
+      config.get_option("default_format", opts),
+      config.get_option("convert_options", opts)
+    )
+  then
     util.error("Could not save image to disk.")
     return false
   end
