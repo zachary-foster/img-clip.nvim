@@ -35,8 +35,7 @@ local paste_as_file = function(opts)
     not clipboard.save_image(
       clip_cmd,
       file_path,
-      config.get_option("default_format", opts),
-      config.get_option("convert_options", opts)
+      config.get_option("custom_command", opts)
     )
   then
     util.error("Could not save image to disk.")

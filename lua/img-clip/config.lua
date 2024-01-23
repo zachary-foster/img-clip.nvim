@@ -16,8 +16,7 @@ local defaults = {
     embed_image_as_base64 = false, -- paste image as base64 string instead of saving to file
     max_base64_size = 10, -- max size of base64 string in KB
     template = "$FILE_PATH", -- default template
-    convert_options = "-resize 10000000@>", -- The command line options given to imageMagick convert to modify the image
-    default_format = "jpeg", -- The format to save the image in if no extention is used
+    custom_command = 'convert png:- -resize 5000000@> jpeg:-', -- A command-line statment to process images. It must accept an image on standard in and write an image to standard out.
 
     drag_and_drop = {
       enabled = true, -- enable drag and drop mode
