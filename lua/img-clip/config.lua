@@ -16,7 +16,7 @@ local defaults = {
     embed_image_as_base64 = false, -- paste image as base64 string instead of saving to file
     max_base64_size = 10, -- max size of base64 string in KB
     template = "$FILE_PATH", -- default template
-    custom_command = 'convert png:- -resize 5000000@> jpeg:-', -- A command-line statment to process images. It must accept an image on standard in and write an image to standard out.
+    custom_command = 'convert png:- -resize "5000000@>" jpeg:-', -- A command-line statment to process images. It must accept an image on standard in and write an image to standard out.
 
     drag_and_drop = {
       enabled = true, -- enable drag and drop mode
